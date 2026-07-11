@@ -1,190 +1,242 @@
-<!DOCTYPE html>
-<html lang="ja">
+// 🌊 Our Little Ocean
+// 伊藤家の食卓 メインスクリプト
 
-<head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+console.log("🌊 伊藤家の航海日誌 出港しました！");
 
-<title>Our Little Ocean | 伊藤家の食卓</title>
 
-<link rel="stylesheet" href="style.css">
+// 今日の日付
 
-</head>
+const today = new Date();
 
+const dateArea = document.getElementById("today-date");
 
-<body>
 
+if (dateArea) {
 
-<header>
+  dateArea.textContent =
+    `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日の航海`;
 
-<h1>🌊 Our Little Ocean</h1>
+}
 
-<p>伊藤家の食卓</p>
 
-<span>〜家族3人の航海日誌〜</span>
 
-</header>
+// カレンダー
 
+let currentDate = new Date();
 
+let selectedDate = null;
 
-<main>
 
 
-<section class="today">
+function createCalendar(date) {
 
-<h2>⚓ 今日の航海</h2>
 
-<p id="today-date"></p>
+  const year = date.getFullYear();
 
-</section>
+  const month = date.getMonth();
 
 
+  const title =
+    document.getElementById("calendar-title");
 
 
-<section class="family">
+  const calendar =
+    document.getElementById("calendar");
 
-<h2>👨‍👩‍👦 家族の予定</h2>
 
 
-<div class="member john">
-🐢 ジョン
-</div>
+  if (!calendar) return;
 
 
-<div class="member kana">
-🐋 かなちゃん
-</div>
 
+  title.textContent =
+    `${year}年${month + 1}月`;
 
-<div class="member naru">
-🐡 なるくん
-</div>
 
 
-</section>
+  calendar.innerHTML = "";
 
 
 
+  const firstDay =
+    new Date(year, month, 1).getDay();
 
 
-<section class="calendar-area">
 
+  const lastDate =
+    new Date(year, month + 1, 0).getDate();
 
-<h2>📅 海のカレンダー</h2>
 
 
-<div class="calendar-header">
 
-<button id="prev-month">
-⬅
-</button>
+  for(let i = 0; i < firstDay; i++){
 
+    const empty =
+      document.createElement("div");
 
-<h3 id="calendar-title"></h3>
+    empty.className = "day empty";
 
+    calendar.appendChild(empty);
 
-<button id="next-month">
-➡
-</button>
+  }
 
 
-</div>
 
+  for(let day = 1; day <= lastDate; day++){
 
 
-<div class="week">
+    const cell =
+      document.createElement("div");
 
-<div>日</div>
-<div>月</div>
-<div>火</div>
-<div>水</div>
-<div>木</div>
-<div>金</div>
-<div>土</div>
 
-</div>
+    cell.className = "day";
 
 
+    cell.textContent = day;
 
-<div id="calendar">
 
-</div>
 
+    cell.addEventListener("click",()=>{
 
 
-<div class="schedule-box">
+      selectedDate =
+      `${year}年${month+1}月${day}日`;
 
 
-<h3>📝 航海メモ</h3>
 
+      document.getElementById("selected-date")
+      .textContent =
+      selectedDate + " の予定";
 
-<p id="selected-date">
-日付を選んでください
-</p>
 
+    });
 
 
-<select id="family-select">
 
-<option value="john">
-🐢 ジョン
-</option>
+    calendar.appendChild(cell);
 
-<option value="kana">
-🐋 かなちゃん
-</option>
 
-<option value="naru">
-🐡 なるくん
-</option>
+  }
 
-</select>
 
+}
 
 
-<input
-id="schedule-input"
-type="text"
-placeholder="予定を書いてね">
 
+// 月移動
 
 
-<button id="add-schedule">
-追加
-</button>
+document
+.getElementById("prev-month")
+?.addEventListener("click",()=>{
 
+  currentDate.setMonth(
+    currentDate.getMonth()-1
+  );
 
+  createCalendar(currentDate);
 
-<div id="schedule-list">
+});
 
-</div>
 
 
-</div>
+document
+.getElementById("next-month")
+?.addEventListener("click",()=>{
 
+  currentDate.setMonth(
+    currentDate.getMonth()+1
+  );
 
-</section>
+  createCalendar(currentDate);
 
+});
 
-</main>
 
 
 
+// 予定追加
 
-<footer>
 
-<p>
-🐢 ジョン　🐋 かなちゃん　🐡 なるくん
-</p>
+document
+.getElementById("add-schedule")
+?.addEventListener("click",()=>{
 
-</footer>
 
+  const input =
+  document.getElementById("schedule-input");
 
 
-<script src="script.js"></script>
+  const list =
+  document.getElementById("schedule-list");
 
 
-</body>
+  const family =
+  document.getElementById("family-select");
 
-</html>
+
+
+  if(!selectedDate){
+
+    alert("まず日付を選んでね🌊");
+
+    return;
+
+  }
+
+
+
+  if(input.value === ""){
+
+    alert("予定を書いてね⚓");
+
+    return;
+
+  }
+
+
+
+  const item =
+  document.createElement("div");
+
+
+
+  item.className =
+  "schedule-item " + family.value;
+
+
+
+  const icon = {
+
+    john:"🐢",
+
+    kana:"🐋",
+
+    naru:"🐡"
+
+  };
+
+
+
+  item.textContent =
+  `${icon[family.value]} ${selectedDate} ${input.value}`;
+
+
+
+  list.appendChild(item);
+
+
+
+  input.value = "";
+
+
+
+});
+
+
+
+
+// 最初の表示
+
+createCalendar(currentDate);
