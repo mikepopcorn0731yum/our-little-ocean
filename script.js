@@ -1,237 +1,190 @@
-// 🌊 Our Little Ocean
-// 伊藤家の食卓 メインスクリプト
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
 
-console.log("🌊 伊藤家の航海日誌 出港しました！");
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Our Little Ocean | 伊藤家の食卓</title>
 
-// 今日の日付
+<link rel="stylesheet" href="style.css">
 
-const today = new Date();
+</head>
 
-const dateArea = document.getElementById("today-date");
 
-if (dateArea) {
+<body>
 
-  dateArea.textContent =
-    `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日の航海`;
 
-}
+<header>
 
+<h1>🌊 Our Little Ocean</h1>
 
+<p>伊藤家の食卓</p>
 
-// カレンダー設定
+<span>〜家族3人の航海日誌〜</span>
 
-let currentDate = new Date();
+</header>
 
-let selectedDate = null;
 
 
+<main>
 
-function createCalendar(date) {
 
+<section class="today">
 
-  const year = date.getFullYear();
+<h2>⚓ 今日の航海</h2>
 
-  const month = date.getMonth();
+<p id="today-date"></p>
 
+</section>
 
 
-  const title =
-    document.getElementById("calendar-title");
 
 
-  const calendar =
-    document.getElementById("calendar");
+<section class="family">
 
+<h2>👨‍👩‍👦 家族の予定</h2>
 
 
-  if (!calendar) return;
+<div class="member john">
+🐢 ジョン
+</div>
 
 
+<div class="member kana">
+🐋 かなちゃん
+</div>
 
-  title.textContent =
-    `${year}年${month + 1}月`;
 
+<div class="member naru">
+🐡 なるくん
+</div>
 
 
-  calendar.innerHTML = "";
+</section>
 
 
 
-  const firstDay =
-    new Date(year, month, 1).getDay();
 
 
+<section class="calendar-area">
 
-  const lastDate =
-    new Date(year, month + 1, 0).getDate();
 
+<h2>📅 海のカレンダー</h2>
 
 
+<div class="calendar-header">
 
-  for(let i = 0; i < firstDay; i++){
+<button id="prev-month">
+⬅
+</button>
 
 
-    const empty =
-      document.createElement("div");
+<h3 id="calendar-title"></h3>
 
 
-    empty.className = "day empty";
+<button id="next-month">
+➡
+</button>
 
 
-    calendar.appendChild(empty);
+</div>
 
 
-  }
 
+<div class="week">
 
+<div>日</div>
+<div>月</div>
+<div>火</div>
+<div>水</div>
+<div>木</div>
+<div>金</div>
+<div>土</div>
 
+</div>
 
-  for(let day = 1; day <= lastDate; day++){
 
 
-    const cell =
-      document.createElement("div");
+<div id="calendar">
 
+</div>
 
-    cell.className = "day";
 
 
-    cell.textContent = day;
+<div class="schedule-box">
 
 
+<h3>📝 航海メモ</h3>
 
-    cell.addEventListener("click",()=>{
 
+<p id="selected-date">
+日付を選んでください
+</p>
 
-      selectedDate =
-        `${year}年${month+1}月${day}日`;
 
 
+<select id="family-select">
 
-      document.getElementById("selected-date")
-      .textContent =
-      selectedDate + " の予定";
+<option value="john">
+🐢 ジョン
+</option>
 
+<option value="kana">
+🐋 かなちゃん
+</option>
 
+<option value="naru">
+🐡 なるくん
+</option>
 
-    });
+</select>
 
 
 
-    calendar.appendChild(cell);
+<input
+id="schedule-input"
+type="text"
+placeholder="予定を書いてね">
 
 
-  }
 
+<button id="add-schedule">
+追加
+</button>
 
-}
 
 
+<div id="schedule-list">
 
+</div>
 
-// 月移動
 
+</div>
 
-document
-.getElementById("prev-month")
-?.addEventListener("click",()=>{
 
+</section>
 
-  currentDate.setMonth(
-    currentDate.getMonth()-1
-  );
 
+</main>
 
-  createCalendar(currentDate);
 
 
-});
 
+<footer>
 
+<p>
+🐢 ジョン　🐋 かなちゃん　🐡 なるくん
+</p>
 
+</footer>
 
-document
-.getElementById("next-month")
-?.addEventListener("click",()=>{
 
 
-  currentDate.setMonth(
-    currentDate.getMonth()+1
-  );
+<script src="script.js"></script>
 
 
-  createCalendar(currentDate);
+</body>
 
-
-});
-
-
-
-
-
-
-// 予定追加
-
-
-document
-.getElementById("add-schedule")
-?.addEventListener("click",()=>{
-
-
-  const input =
-    document.getElementById("schedule-input");
-
-
-  const list =
-    document.getElementById("schedule-list");
-
-
-
-  if(!selectedDate){
-
-    alert("まず日付を選んでね🌊");
-
-    return;
-
-  }
-
-
-
-  if(input.value === ""){
-
-    alert("予定を書いてね⚓");
-
-    return;
-
-  }
-
-
-
-  const item =
-    document.createElement("p");
-
-
-  item.textContent =
-    "🌊 " + selectedDate + "　" + input.value;
-
-
-
-  list.appendChild(item);
-
-
-
-  input.value = "";
-
-
-
-});
-
-
-
-
-
-// 最初の表示
-
-createCalendar(currentDate);
+</html>
