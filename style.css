@@ -1,7 +1,6 @@
 body {
 
   margin:0;
-
   padding:0;
 
   font-family:
@@ -12,35 +11,42 @@ body {
   background:
   linear-gradient(
     180deg,
-    #7ed6f7,
-    #dff8ff
+    #48bfe3,
+    #caf0f8,
+    #e8fbff
   );
 
-  color:#245;
+  color:#234;
 
   text-align:center;
 
   min-height:100vh;
 
+  overflow-x:hidden;
+
 }
 
 
 
-/* 海の泡っぽい雰囲気 */
+/* 海の泡 */
 
 body::before {
 
-  content:"🫧  🫧  🫧";
+  content:"🫧     🫧        🫧";
 
   position:fixed;
 
-  top:20px;
+  top:10px;
 
-  left:20px;
+  left:0;
 
-  font-size:25px;
+  width:100%;
 
-  opacity:0.5;
+  font-size:35px;
+
+  opacity:0.35;
+
+  pointer-events:none;
 
 }
 
@@ -50,7 +56,7 @@ body::before {
 
 header {
 
-  padding:35px 20px;
+  padding:40px 20px 25px;
 
 }
 
@@ -58,12 +64,14 @@ header {
 
 h1 {
 
-  color:#006994;
+  color:#005f73;
 
-  font-size:2.5rem;
+  font-size:2.6rem;
 
   text-shadow:
-  2px 2px 0 white;
+
+  3px 3px 0 white;
+
 
 }
 
@@ -71,9 +79,19 @@ h1 {
 
 header p {
 
+  color:#0077b6;
+
   font-size:1.5rem;
 
-  color:#0077aa;
+  font-weight:bold;
+
+}
+
+
+
+header span {
+
+  color:#006494;
 
 }
 
@@ -97,36 +115,41 @@ main {
 
 
   background:
-  rgba(255,255,255,0.85);
+
+  rgba(255,255,255,0.88);
 
 
-  border-radius:35px;
+  border-radius:40px;
 
 
   padding:25px;
 
 
-  margin:20px auto;
+  margin:25px auto;
 
 
   max-width:520px;
 
 
+  border:
+
+  3px solid rgba(255,255,255,0.8);
+
+
   box-shadow:
 
-  0 8px 20px
-  rgba(0,100,150,0.15);
+  0 10px 25px
+
+  rgba(0,100,150,0.2);
 
 
 }
-
-
 
 
 
 h2 {
 
-  color:#0077aa;
+  color:#0077b6;
 
 }
 
@@ -134,22 +157,16 @@ h2 {
 
 
 
-/* 家族の海 */
-
-
 .member {
 
 
-  border-radius:25px;
+  border-radius:30px;
 
-
-  padding:18px;
-
+  padding:20px;
 
   margin:15px 0;
 
-
-  font-size:1.2rem;
+  font-size:1.3rem;
 
 
 }
@@ -158,8 +175,7 @@ h2 {
 
 .john {
 
-  background:#eaffc8;
-
+  background:#e8ffc8;
 
 }
 
@@ -167,8 +183,7 @@ h2 {
 
 .kana {
 
-  background:#c9f3ff;
-
+  background:#c8f3ff;
 
 }
 
@@ -176,8 +191,7 @@ h2 {
 
 .naru {
 
-  background:#fff3a8;
-
+  background:#fff5b8;
 
 }
 
@@ -185,18 +199,12 @@ h2 {
 
 
 
-/* カレンダー */
-
-
 .calendar-header {
 
 
   display:flex;
 
-
-  justify-content:
-  space-between;
-
+  justify-content:space-between;
 
   align-items:center;
 
@@ -205,28 +213,20 @@ h2 {
 
 
 
-
-
 button {
 
 
-  border:none;
-
-
-  background:#0099cc;
-
+  background:#0096c7;
 
   color:white;
 
-
-  border-radius:50%;
-
+  border:none;
 
   width:45px;
 
-
   height:45px;
 
+  border-radius:50%;
 
   font-size:1.2rem;
 
@@ -242,18 +242,14 @@ button {
 
   display:grid;
 
-
   grid-template-columns:
+
   repeat(7,1fr);
 
 
+  color:#006494;
+
   margin-top:20px;
-
-
-  font-weight:bold;
-
-
-  color:#006994;
 
 
 }
@@ -267,16 +263,12 @@ button {
 
   display:grid;
 
-
   grid-template-columns:
+
   repeat(7,1fr);
 
 
   gap:8px;
-
-
-  margin-top:10px;
-
 
 }
 
@@ -290,7 +282,7 @@ button {
   background:white;
 
 
-  border-radius:18px;
+  border-radius:20px;
 
 
   padding:12px 5px;
@@ -298,23 +290,20 @@ button {
 
   box-shadow:
 
-  0 3px 8px
-  rgba(0,0,0,0.1);
+  0 4px 10px
+
+  rgba(0,100,150,0.15);
 
 
 }
 
 
 
-
-
 .empty {
-
 
   background:transparent;
 
   box-shadow:none;
-
 
 }
 
@@ -331,13 +320,15 @@ button {
   padding:20px;
 
 
-  background:#f5fdff;
+  background:#f4fdff;
 
 
-  border-radius:25px;
+  border-radius:30px;
 
 
 }
+
+
 
 
 
@@ -351,13 +342,10 @@ select {
   padding:12px;
 
 
-  border-radius:15px;
+  border-radius:20px;
 
 
-  border:1px solid #aaa;
-
-
-  margin:8px;
+  border:2px solid #90e0ef;
 
 
 }
@@ -369,25 +357,25 @@ select {
 .schedule-item {
 
 
-  margin-top:10px;
+  margin-top:12px;
 
 
-  padding:12px;
+  padding:15px;
 
 
-  border-radius:20px;
+  border-radius:25px;
+
+
+  font-weight:bold;
 
 
 }
 
 
 
-/* 予定カラー */
-
-
 .schedule-item.john {
 
- background:#eaffc8;
+  background:#e8ffc8;
 
 }
 
@@ -395,7 +383,7 @@ select {
 
 .schedule-item.kana {
 
- background:#c9f3ff;
+  background:#c8f3ff;
 
 }
 
@@ -403,7 +391,7 @@ select {
 
 .schedule-item.naru {
 
- background:#fff3a8;
+  background:#fff5b8;
 
 }
 
@@ -413,11 +401,8 @@ select {
 
 footer {
 
+  padding:35px;
 
- padding:30px;
-
-
- color:#006994;
-
+  color:#006494;
 
 }
