@@ -19,9 +19,12 @@ if (dateArea) {
 }
 
 
-// カレンダー
+
+// カレンダー設定
 
 let currentDate = new Date();
+
+let selectedDate = null;
 
 
 
@@ -56,14 +59,10 @@ function createCalendar(date) {
 
 
 
-  // 月初の曜日
-
   const firstDay =
     new Date(year, month, 1).getDay();
 
 
-
-  // 月の日数
 
   const lastDate =
     new Date(year, month + 1, 0).getDate();
@@ -71,23 +70,23 @@ function createCalendar(date) {
 
 
 
-  // 空白
-
   for(let i = 0; i < firstDay; i++){
+
 
     const empty =
       document.createElement("div");
 
+
     empty.className = "day empty";
 
+
     calendar.appendChild(empty);
+
 
   }
 
 
 
-
-  // 日付
 
   for(let day = 1; day <= lastDate; day++){
 
@@ -103,6 +102,24 @@ function createCalendar(date) {
 
 
 
+    cell.addEventListener("click",()=>{
+
+
+      selectedDate =
+        `${year}年${month+1}月${day}日`;
+
+
+
+      document.getElementById("selected-date")
+      .textContent =
+      selectedDate + " の予定";
+
+
+
+    });
+
+
+
     calendar.appendChild(cell);
 
 
@@ -113,19 +130,25 @@ function createCalendar(date) {
 
 
 
-// ボタン
+
+// 月移動
+
 
 document
 .getElementById("prev-month")
 ?.addEventListener("click",()=>{
 
+
   currentDate.setMonth(
     currentDate.getMonth()-1
   );
 
+
   createCalendar(currentDate);
 
+
 });
+
 
 
 
@@ -133,13 +156,79 @@ document
 .getElementById("next-month")
 ?.addEventListener("click",()=>{
 
+
   currentDate.setMonth(
     currentDate.getMonth()+1
   );
 
+
   createCalendar(currentDate);
 
+
 });
+
+
+
+
+
+
+// 予定追加
+
+
+document
+.getElementById("add-schedule")
+?.addEventListener("click",()=>{
+
+
+  const input =
+    document.getElementById("schedule-input");
+
+
+  const list =
+    document.getElementById("schedule-list");
+
+
+
+  if(!selectedDate){
+
+    alert("まず日付を選んでね🌊");
+
+    return;
+
+  }
+
+
+
+  if(input.value === ""){
+
+    alert("予定を書いてね⚓");
+
+    return;
+
+  }
+
+
+
+  const item =
+    document.createElement("p");
+
+
+  item.textContent =
+    "🌊 " + selectedDate + "　" + input.value;
+
+
+
+  list.appendChild(item);
+
+
+
+  input.value = "";
+
+
+
+});
+
+
 
 
 
