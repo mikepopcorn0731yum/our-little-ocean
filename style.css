@@ -1,88 +1,79 @@
 body {
+  margin: 0;
+  padding: 0;
 
-margin:0;
-padding:0;
+  font-family:
+  "Hiragino Maru Gothic ProN",
+  "Yu Gothic",
+  sans-serif;
 
-font-family:
-"Hiragino Maru Gothic ProN",
-"Yu Gothic",
-sans-serif;
+  text-align: center;
 
-background:
-linear-gradient(
-180deg,
-#0077b6,
-#48cae4,
-#caf0f8
-);
+  color: #16425b;
 
-color:#234;
+  min-height: 100vh;
 
-text-align:center;
+  background:
+  linear-gradient(
+    180deg,
+    #b8ecff 0%,
+    #dff8ff 45%,
+    #ffffff 100%
+  );
 
-min-height:100vh;
-
-overflow-x:hidden;
-
+  overflow-x: hidden;
 }
 
 
-
-/* 泡 */
+/* 海の光 */
 
 body::before {
 
-content:"🫧  🫧     🫧        🫧";
+  content:"";
 
-position:fixed;
+  position:fixed;
 
-top:20px;
+  top:-100px;
 
-left:0;
+  left:0;
 
-width:100%;
+  width:100%;
 
-font-size:40px;
+  height:300px;
 
-opacity:0.35;
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,255,255,0.8),
+    transparent 60%
+  );
 
-pointer-events:none;
+  animation:sunlight 8s infinite alternate;
 
-animation:bubble 8s infinite linear;
+  pointer-events:none;
+}
+
+
+
+@keyframes sunlight {
+
+  from {
+    transform:translateY(0);
+  }
+
+  to {
+    transform:translateY(30px);
+  }
 
 }
 
 
 
-@keyframes bubble {
-
-0% {
-
-transform:translateY(20px);
-
-}
-
-50% {
-
-transform:translateY(-10px);
-
-}
-
-100% {
-
-transform:translateY(20px);
-
-}
-
-}
-
-
-
-
+/* ヘッダー */
 
 header {
 
-padding:45px 20px 30px;
+  padding:45px 20px 25px;
 
 }
 
@@ -90,13 +81,13 @@ padding:45px 20px 30px;
 
 h1 {
 
-font-size:2.7rem;
+  margin:0;
 
-color:white;
+  font-size:2.4rem;
 
-text-shadow:
+  color:#006494;
 
-3px 3px 0 #006994;
+  letter-spacing:2px;
 
 }
 
@@ -104,11 +95,11 @@ text-shadow:
 
 header p {
 
-font-size:1.6rem;
+  font-size:1.5rem;
 
-color:white;
+  color:#0077b6;
 
-font-weight:bold;
+  font-weight:bold;
 
 }
 
@@ -116,9 +107,7 @@ font-weight:bold;
 
 header span {
 
-color:white;
-
-font-size:1.2rem;
+  color:#468faf;
 
 }
 
@@ -128,52 +117,53 @@ font-size:1.2rem;
 
 main {
 
-padding:15px;
+  padding:10px;
 
 }
 
 
 
 
+/* 白い箱感を減らしたカード */
 
 .today,
 .family,
 .calendar-area {
 
+  background:
 
-background:
-
-rgba(255,255,255,0.9);
-
-
-border-radius:40px;
+  rgba(255,255,255,0.75);
 
 
-padding:25px;
+  backdrop-filter:blur(10px);
 
 
-margin:25px auto;
+  border-radius:32px;
 
 
-max-width:520px;
+  padding:25px;
 
 
-box-shadow:
+  margin:25px auto;
 
-0 15px 30px
 
-rgba(0,80,120,0.25);
+  max-width:520px;
 
+
+  box-shadow:
+
+  0 15px 35px
+
+  rgba(0,100,150,0.15);
 
 }
-
 
 
 
 
 h2 {
 
-color:#0077b6;
+  color:#0077b6;
 
 }
 
@@ -183,43 +173,21 @@ color:#0077b6;
 
 .member {
 
+  padding:18px;
 
-border-radius:30px;
+  margin:15px 0;
 
-padding:20px;
+  border-radius:25px;
 
-margin:15px 0;
-
-font-size:1.25rem;
-
-font-weight:bold;
-
-box-shadow:
-
-0 5px 10px
-
-rgba(0,0,0,0.1);
-
+  font-size:1.2rem;
 
 }
-
-
-
-.member span {
-
-font-size:0.9rem;
-
-font-weight:normal;
-
-}
-
-
 
 
 
 .john {
 
-background:#e8ffc8;
+ background:#e8f7c8;
 
 }
 
@@ -227,7 +195,7 @@ background:#e8ffc8;
 
 .kana {
 
-background:#c8f3ff;
+ background:#d7f5ff;
 
 }
 
@@ -235,7 +203,7 @@ background:#c8f3ff;
 
 .naru {
 
-background:#fff5b8;
+ background:#fff4b8;
 
 }
 
@@ -245,109 +213,82 @@ background:#fff5b8;
 
 .calendar-header {
 
-display:flex;
+ display:flex;
 
-justify-content:space-between;
+ justify-content:space-between;
 
-align-items:center;
+ align-items:center;
 
 }
-
 
 
 
 
 button {
 
+ background:#0077b6;
 
-background:#0096c7;
+ color:white;
 
-color:white;
+ border:none;
 
-border:none;
+ border-radius:50%;
 
-border-radius:50%;
+ width:45px;
 
-width:45px;
-
-height:45px;
-
-font-size:1.2rem;
-
+ height:45px;
 
 }
-
-
 
 
 
 .week {
 
+ display:grid;
 
-display:grid;
+ grid-template-columns:
+ repeat(7,1fr);
 
-grid-template-columns:
-repeat(7,1fr);
+ color:#0077b6;
 
-margin-top:20px;
-
-color:#006994;
-
-font-weight:bold;
-
+ margin-top:15px;
 
 }
-
 
 
 
 
 #calendar {
 
+ display:grid;
 
-display:grid;
+ grid-template-columns:
+ repeat(7,1fr);
 
-grid-template-columns:
-repeat(7,1fr);
-
-gap:8px;
-
-margin-top:10px;
-
+ gap:8px;
 
 }
-
 
 
 
 
 .day {
 
+ background:white;
 
-background:white;
+ border-radius:18px;
 
-border-radius:20px;
+ padding:12px 5px;
 
-padding:12px 5px;
-
-box-shadow:
-
-0 5px 10px
-
-rgba(0,100,150,0.15);
-
+ transition:0.3s;
 
 }
 
 
 
+.day:hover {
 
-
-.empty {
-
-background:transparent;
-
-box-shadow:none;
+ transform:translateY(-3px);
 
 }
 
@@ -357,15 +298,14 @@ box-shadow:none;
 
 .schedule-box {
 
+ margin-top:25px;
 
-margin-top:25px;
+ padding:20px;
 
-padding:20px;
+ background:
+ rgba(255,255,255,0.7);
 
-background:#f4fdff;
-
-border-radius:30px;
-
+ border-radius:28px;
 
 }
 
@@ -376,14 +316,13 @@ border-radius:30px;
 input,
 select {
 
+ width:80%;
 
-width:80%;
+ padding:12px;
 
-padding:12px;
+ border-radius:18px;
 
-border-radius:20px;
-
-border:2px solid #90e0ef;
+ border:1px solid #90e0ef;
 
 }
 
@@ -393,52 +332,21 @@ border:2px solid #90e0ef;
 
 .schedule-item {
 
+ padding:14px;
 
-margin-top:12px;
+ margin-top:10px;
 
-padding:15px;
-
-border-radius:25px;
-
-font-weight:bold;
-
+ border-radius:22px;
 
 }
-
-
-
-.schedule-item.john {
-
-background:#e8ffc8;
-
-}
-
-
-
-.schedule-item.kana {
-
-background:#c8f3ff;
-
-}
-
-
-
-.schedule-item.naru {
-
-background:#fff5b8;
-
-}
-
 
 
 
 
 footer {
 
-padding:35px;
+ padding:40px;
 
-color:white;
-
-font-weight:bold;
+ color:#0077b6;
 
 }
