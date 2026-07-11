@@ -5,46 +5,144 @@
 console.log("🌊 伊藤家の航海日誌 出港しました！");
 
 
-document.addEventListener("DOMContentLoaded", () => {
+// 今日の日付
+
+const today = new Date();
+
+const dateArea = document.getElementById("today-date");
+
+if (dateArea) {
+
+  dateArea.textContent =
+    `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日の航海`;
+
+}
 
 
-  // 今日の日付表示
+// カレンダー
 
-  const today = new Date();
-
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
+let currentDate = new Date();
 
 
-  const dateArea = document.getElementById("today-date");
+
+function createCalendar(date) {
 
 
-  if (dateArea) {
+  const year = date.getFullYear();
 
-    dateArea.textContent =
-      `${year}年${month}月${day}日の航海`;
+  const month = date.getMonth();
+
+
+
+  const title =
+    document.getElementById("calendar-title");
+
+
+  const calendar =
+    document.getElementById("calendar");
+
+
+
+  if (!calendar) return;
+
+
+
+  title.textContent =
+    `${year}年${month + 1}月`;
+
+
+
+  calendar.innerHTML = "";
+
+
+
+  // 月初の曜日
+
+  const firstDay =
+    new Date(year, month, 1).getDay();
+
+
+
+  // 月の日数
+
+  const lastDate =
+    new Date(year, month + 1, 0).getDate();
+
+
+
+
+  // 空白
+
+  for(let i = 0; i < firstDay; i++){
+
+    const empty =
+      document.createElement("div");
+
+    empty.className = "day empty";
+
+    calendar.appendChild(empty);
 
   }
 
 
-  // メッセージクリック
-
-  const message =
-    document.querySelector(".ocean-message");
 
 
-  if (message) {
+  // 日付
 
-    message.addEventListener("click", () => {
+  for(let day = 1; day <= lastDate; day++){
 
-      alert(
-        "🐢🐋🐡 伊藤家の小さな海へようこそ🌊"
-      );
 
-    });
+    const cell =
+      document.createElement("div");
+
+
+    cell.className = "day";
+
+
+    cell.textContent = day;
+
+
+
+    calendar.appendChild(cell);
+
 
   }
 
+
+}
+
+
+
+// ボタン
+
+document
+.getElementById("prev-month")
+?.addEventListener("click",()=>{
+
+  currentDate.setMonth(
+    currentDate.getMonth()-1
+  );
+
+  createCalendar(currentDate);
 
 });
+
+
+
+document
+.getElementById("next-month")
+?.addEventListener("click",()=>{
+
+  currentDate.setMonth(
+    currentDate.getMonth()+1
+  );
+
+  createCalendar(currentDate);
+
+});
+
+
+
+// 最初の表示
+
+createCalendar(currentDate);
