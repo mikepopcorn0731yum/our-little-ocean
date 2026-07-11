@@ -1,51 +1,284 @@
-// 🌊 Our Little Ocean
-// 伊藤家の食卓 メインスクリプト
+body {
 
+  margin:0;
+  padding:0;
 
-console.log("🌊 伊藤家の航海日誌 出港しました！");
+  font-family:
+  "Hiragino Maru Gothic ProN",
+  "Yu Gothic",
+  sans-serif;
 
+  background:
+  linear-gradient(
+    #a9e5ff,
+    #f2fbff
+  );
 
-document.addEventListener("DOMContentLoaded", () => {
+  color:#345;
 
+  text-align:center;
 
-  // 今日の日付表示
-
-  const today = new Date();
-
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-
-
-  const dateArea = document.getElementById("today-date");
-
-
-  if(dateArea){
-
-    dateArea.textContent =
-      `${year}年${month}月${day日} の航海`;
-
-  }
+}
 
 
 
-  // メッセージクリック
+/* ヘッダー */
 
-  const message =
-    document.querySelector(".ocean-message");
+header {
 
+  padding:35px 20px;
 
-  if(message){
-
-    message.addEventListener("click",()=>{
-
-      alert(
-        "🐢🐋🐡 伊藤家の小さな海へようこそ🌊"
-      );
-
-    });
-
-  }
+}
 
 
-});
+h1 {
+
+  color:#0077aa;
+
+  font-size:2.3rem;
+
+}
+
+
+
+header p {
+
+  font-size:1.5rem;
+
+}
+
+
+
+
+
+main {
+
+  padding:15px;
+
+}
+
+
+
+
+
+/* カード共通 */
+
+.today,
+.family,
+.calendar-area {
+
+
+  background:
+  rgba(255,255,255,0.85);
+
+
+  border-radius:30px;
+
+
+  padding:25px;
+
+
+  margin:20px auto;
+
+
+  max-width:520px;
+
+
+  box-shadow:
+  0 5px 15px rgba(0,0,0,0.08);
+
+}
+
+
+
+
+
+/* 家族カラー */
+
+
+.member {
+
+  border-radius:20px;
+
+  padding:15px;
+
+  margin:15px 0;
+
+}
+
+
+
+.john {
+
+  background:#eaffc8;
+
+}
+
+
+
+.kana {
+
+  background:#c9f3ff;
+
+}
+
+
+
+.naru {
+
+  background:#fff4a8;
+
+}
+
+
+
+
+
+/* カレンダー */
+
+
+.calendar-header {
+
+
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+}
+
+
+
+button {
+
+
+  border:none;
+
+  background:#75ccec;
+
+
+  color:white;
+
+
+  border-radius:50%;
+
+
+  width:45px;
+
+  height:45px;
+
+
+  font-size:1.2rem;
+
+}
+
+
+
+
+
+.week {
+
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(7,1fr);
+
+
+  margin-bottom:10px;
+
+
+  font-weight:bold;
+
+}
+
+
+
+
+
+#calendar {
+
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(7,1fr);
+
+
+  gap:8px;
+
+}
+
+
+
+
+
+.day {
+
+
+  background:white;
+
+
+  border-radius:15px;
+
+
+  padding:12px 5px;
+
+
+  min-height:35px;
+
+
+  box-shadow:
+  0 2px 6px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.empty {
+
+
+  background:transparent;
+
+  box-shadow:none;
+
+}
+
+
+
+
+
+footer {
+
+  padding:30px;
+
+}
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+ h1{
+
+  font-size:1.8rem;
+
+ }
+
+
+ .day{
+
+  padding:10px 3px;
+
+ }
+
+
+}
