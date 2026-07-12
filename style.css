@@ -483,3 +483,88 @@ padding:40px;
 color:#0077b6;
 
 }
+/* 🌊 伊藤家メンバーカード強化 */
+
+.member {
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:0.4s;
+
+  border:2px solid rgba(255,255,255,0.8);
+
+}
+
+
+.member:hover {
+
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 15px 30px
+  rgba(0,100,150,0.25);
+
+}
+
+
+
+/* 船長ジョン */
+
+.john {
+
+  background:
+  linear-gradient(
+  135deg,
+  #e8f7c8,
+  #ffffff
+  );
+
+}
+
+
+/* クジラの海 */
+
+.kana {
+
+  background:
+  linear-gradient(
+  135deg,
+  #d7f5ff,
+  #ffffff
+  );
+
+}
+
+
+/* 小さな冒険家 */
+
+.naru {
+
+  background:
+  linear-gradient(
+  135deg,
+  #fff4b8,
+  #ffffff
+  );
+
+}
+
+
+
+.member::after {
+
+  content:"🌊";
+
+  position:absolute;
+
+  right:15px;
+
+  bottom:10px;
+
+  opacity:0.25;
+
+  font-size:35px;
+
+}
