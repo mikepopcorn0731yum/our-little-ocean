@@ -2,282 +2,94 @@
 <html lang="ja">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Ocean</title>
 
-<title>Our Little Ocean | 伊藤家の航海日誌</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-<div class="ocean-effect">
 
-<div class="wave wave1"></div>
-<div class="wave wave2"></div>
+<div class="ocean">
 
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-
-</div>
-
-
-<header>
+<header class="header">
 
 <h1>🌊 Our Little Ocean</h1>
 
-<p>⚓ 伊藤家の航海日誌</p>
-
-<span>
-🐢🐋🐡 3人で進む小さな海
-</span>
+<p>毎日帰りたくなる海</p>
 
 </header>
 
 
-
-
 <main>
 
+<section class="home">
 
-<section class="today">
+<div class="bubble">
 
-<h2>⚓ 今日の航海</h2>
+<h2>🫧 今日の予定</h2>
 
-<p id="today-date"></p>
-
-</section>
-
-
-
-
-
-<section class="family">
-
-
-<h2>👨‍👩‍👦 海の仲間たち</h2>
-
-
-<div class="member john">
-
-🐢 ジョン<br>
-<span>家族の船長</span>
-
-</div>
-
-
-
-<div class="member kana">
-
-🐋 かなちゃん<br>
-<span>やさしい海の守り人</span>
-
-</div>
-
-
-
-
-<div class="member naru">
-
-🐡 なるくん<br>
-<span>小さな冒険家</span>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="calendar-area">
-
-
-<h2>📖 航海スケジュール</h2>
-
-
-
-<div class="calendar-header">
-
-
-<button id="prev-month">
-⬅
-</button>
-
-
-
-<h3 id="calendar-title"></h3>
-
-
-
-<button id="next-month">
-➡
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div class="week">
-
-<div>日</div>
-<div>月</div>
-<div>火</div>
-<div>水</div>
-<div>木</div>
-<div>金</div>
-<div>土</div>
-
-</div>
-
-
-
-
-<div id="calendar">
-
-</div>
-
-
-
-
-
-
-
-<div class="schedule-box">
-
-
-<h3>⚓ 航海メモ</h3>
-
-
-
-<p id="selected-date">
-
-日付を選んでください
-
+<p id="today-message">
+今日は特別な予定はありません😊
 </p>
 
+</div>
 
 
+<div class="coral-house">
 
-<select id="family-select">
+<div class="house">
 
+🪸🏠
 
-<option value="john">
+</div>
 
-🐢 ジョン
-
-</option>
-
-
-
-<option value="kana">
-
-🐋 かなちゃん
-
-</option>
-
-
-
-<option value="naru">
-
-🐡 なるくん
-
-</option>
-
-
-
-</select>
-
-
-
-
-
-
-<input
-
-id="schedule-input"
-
-type="text"
-
-placeholder="海での予定を書いてね">
-
-
-
-
-
-
-<button id="add-schedule">
-
-追加
-
-</button>
-
-
-
-
-
-
-<div id="schedule-list">
+<p>チャッピーのおうち</p>
 
 </div>
 
 
+<div class="chappy">
 
+<div class="otter">
 
+🦦
 
 </div>
 
+<div class="speech">
+
+おかえり😊
+
+</div>
+
+</div>
 
 </section>
-
 
 </main>
 
 
+<nav class="bottom-nav">
 
+<button>🏠<br>ホーム</button>
 
+<button>📅<br>カレンダー</button>
 
+<button>🛒<br>買い物</button>
 
+<button>📖<br>航海日誌</button>
 
-<footer>
+<button>⚙️<br>メニュー</button>
 
+</nav>
 
-<p>
-
-🌊 Our Little Ocean
-
-</p>
-
-
-<p>
-
-🐢 ジョン　🐋 かなちゃん　🐡 なるくん
-
-</p>
-
-
-</footer>
-
-
-
-
-
+</div>
 
 <script src="script.js"></script>
 
-
 </body>
-
 
 </html>
