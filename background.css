@@ -1,21 +1,12 @@
-/* ===========================
-   Our Little Ocean
-   Background Engine v1
-=========================== */
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Ocean</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-
-    width:100%;
-    height:100%;
-    overflow:hidden;
-
-}
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
 
@@ -30,53 +21,14 @@ html,body{
     <!-- 魚 -->
     <div id="fish-layer"></div>
 
+    <!-- キラキラ -->
+    <div class="sparkles"></div>
+
     <!-- 海藻 -->
     <div class="seaweed left"></div>
+    <div class="seaweed center"></div>
     <div class="seaweed right"></div>
 
     <!-- サンゴ -->
     <div class="coral left"></div>
-    <div class="coral right"></div>
-
-    <!-- メイン -->
-    <main class="home">
-
-        <div class="house">
-
-            <div class="house-glow"></div>
-
-            <div class="house-body">
-                🪸🏠
-            </div>
-
-        </div>
-
-        <div class="today-bubble">
-
-            <h2>🫧 今日の予定</h2>
-
-            <p id="today-message">
-                海の豆知識を表示
-            </p>
-
-        </div>
-
-        <div class="chappy">
-
-            🦦
-
-            <div class="speech">
-
-                おかえり😊
-
-            </div>
-
-        </div>
-
-    </main>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
+    <div
