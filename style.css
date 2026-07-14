@@ -270,3 +270,81 @@ body{
     line-height:1.8;
 
 }
+
+/* チャッピー */
+
+.chappy-area{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    z-index:10;
+
+}
+
+#chappy{
+
+    font-size:4.5rem;
+
+    animation:
+
+    floatChappy 4s ease-in-out infinite;
+
+}
+
+.speech{
+
+    background:
+
+    rgba(255,255,255,.85);
+
+    color:#0b4c8a;
+
+    padding:12px 20px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/* 海藻 */
+
+.seaweed{
+
+    position:absolute;
+
+    bottom:-30px;
+
+    width:45px;
+
+    height:220px;
+
+    background:
+
+    linear-gradient(
+
+    #39d36f,
+
+    #0d8c47
+
+    );
+
+    border-radius:50px;
+
+    opacity:.8;
+
+    animation:
+
+    sway 5
