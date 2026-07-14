@@ -1,242 +1,39 @@
-// 🌊 Our Little Ocean
-// 伊藤家の食卓 メインスクリプト
+// ==================================
+// Our Little Ocean v2
+// ==================================
 
+console.log("🌊 Our Little Ocean 起動");
 
-console.log("🌊 伊藤家の航海日誌 出港しました！");
-
-
+// ----------------------------
 // 今日の日付
+// ----------------------------
 
-const today = new Date();
+const todayMessage = document.getElementById("today-message");
 
-const dateArea = document.getElementById("today-date");
+const seaFacts = [
 
+"🌊 海の豆知識：ラッコは海藻を体に巻いて眠るよ",
 
-if (dateArea) {
+"🐠 クマノミはイソギンチャクと仲良し！",
 
-  dateArea.textContent =
-    `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日の航海`;
+"🐳 シロナガスクジラは地球最大の動物",
 
-}
+"🐙 タコの心臓は3つあるよ",
 
+"🪸 サンゴは植物じゃなく動物なんだ"
 
+];
 
-// カレンダー
+// ----------------------------
+// チャッピー
+// ----------------------------
 
-let currentDate = new Date();
+const speech = document.querySelector(".speech");
 
-let selectedDate = null;
+const messages = [
 
+"おかえり😊",
 
+"今日は穏やかな海だね🌊",
 
-function createCalendar(date) {
-
-
-  const year = date.getFullYear();
-
-  const month = date.getMonth();
-
-
-  const title =
-    document.getElementById("calendar-title");
-
-
-  const calendar =
-    document.getElementById("calendar");
-
-
-
-  if (!calendar) return;
-
-
-
-  title.textContent =
-    `${year}年${month + 1}月`;
-
-
-
-  calendar.innerHTML = "";
-
-
-
-  const firstDay =
-    new Date(year, month, 1).getDay();
-
-
-
-  const lastDate =
-    new Date(year, month + 1, 0).getDate();
-
-
-
-
-  for(let i = 0; i < firstDay; i++){
-
-    const empty =
-      document.createElement("div");
-
-    empty.className = "day empty";
-
-    calendar.appendChild(empty);
-
-  }
-
-
-
-  for(let day = 1; day <= lastDate; day++){
-
-
-    const cell =
-      document.createElement("div");
-
-
-    cell.className = "day";
-
-
-    cell.textContent = day;
-
-
-
-    cell.addEventListener("click",()=>{
-
-
-      selectedDate =
-      `${year}年${month+1}月${day}日`;
-
-
-
-      document.getElementById("selected-date")
-      .textContent =
-      selectedDate + " の予定";
-
-
-    });
-
-
-
-    calendar.appendChild(cell);
-
-
-  }
-
-
-}
-
-
-
-// 月移動
-
-
-document
-.getElementById("prev-month")
-?.addEventListener("click",()=>{
-
-  currentDate.setMonth(
-    currentDate.getMonth()-1
-  );
-
-  createCalendar(currentDate);
-
-});
-
-
-
-document
-.getElementById("next-month")
-?.addEventListener("click",()=>{
-
-  currentDate.setMonth(
-    currentDate.getMonth()+1
-  );
-
-  createCalendar(currentDate);
-
-});
-
-
-
-
-// 予定追加
-
-
-document
-.getElementById("add-schedule")
-?.addEventListener("click",()=>{
-
-
-  const input =
-  document.getElementById("schedule-input");
-
-
-  const list =
-  document.getElementById("schedule-list");
-
-
-  const family =
-  document.getElementById("family-select");
-
-
-
-  if(!selectedDate){
-
-    alert("まず日付を選んでね🌊");
-
-    return;
-
-  }
-
-
-
-  if(input.value === ""){
-
-    alert("予定を書いてね⚓");
-
-    return;
-
-  }
-
-
-
-  const item =
-  document.createElement("div");
-
-
-
-  item.className =
-  "schedule-item " + family.value;
-
-
-
-  const icon = {
-
-    john:"🐢",
-
-    kana:"🐋",
-
-    naru:"🐡"
-
-  };
-
-
-
-  item.textContent =
-  `${icon[family.value]} ${selectedDate} ${input.value}`;
-
-
-
-  list.appendChild(item);
-
-
-
-  input.value = "";
-
-
-
-});
-
-
-
-
-// 最初の表示
-
-createCalendar(currentDate);
+"予定を忘れない
