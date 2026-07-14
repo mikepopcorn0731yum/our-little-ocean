@@ -17,48 +17,66 @@ html,body{
 
 }
 
-body{
+<body>
 
-    background:#0d7fd9;
+<div class="ocean">
 
-    font-family:sans-serif;
+    <!-- 光 -->
+    <div class="sun-rays"></div>
 
-}
+    <!-- 泡 -->
+    <div id="bubble-layer"></div>
 
-/* 海 */
+    <!-- 魚 -->
+    <div id="fish-layer"></div>
 
-.ocean{
+    <!-- 海藻 -->
+    <div class="seaweed left"></div>
+    <div class="seaweed right"></div>
 
-    position:relative;
+    <!-- サンゴ -->
+    <div class="coral left"></div>
+    <div class="coral right"></div>
 
-    width:100vw;
-    height:100vh;
+    <!-- メイン -->
+    <main class="home">
 
-    overflow:hidden;
+        <div class="house">
 
-    background:
-    linear-gradient(
-    to bottom,
-    #8fe9ff 0%,
-    #4ec8ff 25%,
-    #1c98e8 60%,
-    #0b5fa8 100%);
+            <div class="house-glow"></div>
 
-}
+            <div class="house-body">
+                🪸🏠
+            </div>
 
-/* 光 */
+        </div>
 
-.light{
+        <div class="today-bubble">
 
-    position:absolute;
+            <h2>🫧 今日の予定</h2>
 
-    top:-250px;
-    left:8%;
+            <p id="today-message">
+                海の豆知識を表示
+            </p>
 
-    width:300px;
-    height:1200px;
+        </div>
 
-    background:
-    linear-gradient(
-    rgba(255,255,255,.28),
-    rgba(255,255,
+        <div class="chappy">
+
+            🦦
+
+            <div class="speech">
+
+                おかえり😊
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
