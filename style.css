@@ -1,350 +1,116 @@
-/* =====================================
-   Our Little Ocean
-   style.css Part1
-===================================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-html,
-body{
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-    font-family:
-    "Yu Gothic",
-    sans-serif;
-
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:"Yu Gothic",sans-serif;
 }
 
 body{
-
-    background:#0a5fa5;
-
+background:#045e9c;
 }
 
 .ocean{
-
-    position:relative;
-
-    width:100vw;
-
-    height:100vh;
-
-    overflow:hidden;
-
-    background:
-    linear-gradient(
-    to bottom,
-
-    #8be8ff 0%,
-
-    #47c6ff 25%,
-
-    #1793e2 60%,
-
-    #0a5fa5 100%
-
-    );
-
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(
+to bottom,
+#8fe9ff 0%,
+#58d3ff 18%,
+#2eaef3 45%,
+#1277c9 75%,
+#064b89 100%);
 }
 
-
-/* 水面の光 */
-
-.sun-rays{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    repeating-linear-gradient(
-
-    110deg,
-
-    rgba(255,255,255,.18) 0px,
-
-    rgba(255,255,255,.05) 40px,
-
-    transparent 120px
-
-    );
-
-    opacity:.6;
-
-    animation:
-
-    raysMove 12s linear infinite;
-
+.sunlight{
+position:absolute;
+inset:0;
+background:
+repeating-linear-gradient(
+110deg,
+rgba(255,255,255,.14) 0px,
+rgba(255,255,255,.05) 60px,
+transparent 160px);
+animation:sunMove 14s linear infinite;
+opacity:.8;
 }
-
-
-/* キラキラ */
 
 #sparkle-layer{
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:
-
-    radial-gradient(white 1px,transparent 1px);
-
-    background-size:
-
-    140px 140px;
-
-    opacity:.35;
-
+position:absolute;
+inset:0;
+background-image:
+radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);
+background-size:120px 120px;
+opacity:.3;
+animation:twinkle 8s ease-in-out infinite;
 }
-
-
-/* メイン */
 
 .home{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
+position:relative;
+z-index:5;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+padding-top:30px;
 }
 
-
-/* タイトル */
-
-.header{
-
-    margin-top:35px;
-
-    text-align:center;
-
+.title{
+text-align:center;
+color:#fff;
+text-shadow:0 4px 12px rgba(0,0,0,.3);
 }
 
-.header h1{
-
-    color:white;
-
-    font-size:2.1rem;
-
-    text-shadow:
-
-    0 5px 15px rgba(0,0,0,.25);
-
+.title h1{
+font-size:2.2rem;
+margin-bottom:8px;
 }
 
-.header p{
-
-    color:white;
-
-    margin-top:8px;
-
+.title p{
+font-size:1rem;
+opacity:.95;
 }
 
-
-/* サンゴの家 */
-
-.house-area{
-
-    margin-top:45px;
-
-    position:relative;
-
-    text-align:center;
-
+.center-area{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:24px;
+margin-top:35px;
 }
 
-.house{
-
-    font-size:6rem;
-
-    animation:
-
-    floatHouse 5s ease-in-out infinite;
-
+.coral-house{
+width:180px;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,.25));
+animation:houseFloat 5s ease-in-out infinite;
 }
 
-.house-glow{
-
-    position:absolute;
-
-    width:170px;
-
-    height:170px;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-
-    translate(-50%,-50%);
-
-    background:
-
-    radial-gradient(
-
-    rgba(255,255,255,.35),
-
-    transparent 70%
-
-    );
-
-    filter:blur(18px);
-
+.today-bubble{
+width:min(90%,420px);
+padding:24px;
+border-radius:32px;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.45);
+box-shadow:0 10px 30px rgba(0,0,0,.18);
+color:#fff;
 }
 
-.house-area p{
-
-    color:white;
-
-    margin-top:10px;
-
-}
-
-
-/* 今日の予定 */
-
-.today-card{
-
-    margin-top:35px;
-
-    width:min(88%,420px);
-
-    padding:24px;
-
-    border-radius:32px;
-
-    background:
-
-    rgba(255,255,255,.22);
-
-    backdrop-filter:
-
-    blur(14px);
-
-    border:
-
-    1px solid
-
-    rgba(255,255,255,.4);
-
-    box-shadow:
-
-    0 15px 35px
-
-    rgba(0,0,0,.15);
-
-}
-
-.today-card h2{
-
-    color:white;
-
+.today-bubble h2{
+margin-bottom:14px;
+font-size:1.3rem;
 }
 
 #today-message{
-
-    color:white;
-
-    margin-top:14px;
-
-    line-height:1.8;
-
+line-height:1.8;
+font-size:1rem;
 }
-
-/* チャッピー */
-
-.chappy-area{
-
-    margin-top:30px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:15px;
-
-    z-index:10;
-
-}
-
-#chappy{
-
-    font-size:4.5rem;
-
-    animation:
-
-    floatChappy 4s ease-in-out infinite;
-
-}
-
-.speech{
-
-    background:
-
-    rgba(255,255,255,.85);
-
-    color:#0b4c8a;
-
-    padding:12px 20px;
-
-    border-radius:20px;
-
-    font-weight:bold;
-
-    box-shadow:
-
-    0 10px 25px rgba(0,0,0,.15);
-
-}
-
-/* 海藻 */
-
-.seaweed{
-
-    position:absolute;
-
-    bottom:-30px;
-
-    width:45px;
-
-    height:220px;
-
-    background:
-
-    linear-gradient(
-
-    #39d36f,
-
-    #0d8c47
-
-    );
-
-    border-radius:50px;
-
-    opacity:.8;
-
-    animation:
-
-    sway 5
