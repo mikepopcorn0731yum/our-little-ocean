@@ -1,570 +1,93 @@
-body {
+/* ===========================
+   Our Little Ocean v2
+=========================== */
 
-margin:0;
-padding:0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-font-family:
-"Hiragino Maru Gothic ProN",
-"Yu Gothic",
-sans-serif;
+body{
 
-color:#16425b;
+    font-family:"Yu Gothic",sans-serif;
 
-text-align:center;
+    min-height:100vh;
 
-min-height:100vh;
+    background:
+    linear-gradient(
+    180deg,
+    #9fe8ff 0%,
+    #63c8ff 45%,
+    #2ea9ff 100%);
 
-overflow-x:hidden;
+    overflow-x:hidden;
 
-background:
-
-linear-gradient(
-180deg,
-#8ee3ff,
-#dff8ff,
-#ffffff
-);
-
-position:relative;
+    color:#083b66;
 
 }
 
+.ocean{
 
+    min-height:100vh;
 
-/* 海の光 */
+    display:flex;
 
-body::before {
-
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:250px;
-
-
-background:
-
-radial-gradient(
-circle at 50% 0%,
-rgba(255,255,255,0.8),
-transparent 65%
-);
-
-
-animation:
-
-lightMove 6s infinite alternate;
-
-
-pointer-events:none;
+    flex-direction:column;
 
 }
 
+/* ---------- ヘッダー ---------- */
 
+.header{
 
-@keyframes lightMove {
+    text-align:center;
 
-from {
-
-transform:translateY(0);
-
-}
-
-
-to {
-
-transform:translateY(30px);
+    padding:30px 20px;
 
 }
 
-}
+.header h1{
 
+    color:white;
 
+    font-size:2rem;
 
-
-
-/* 海の波 */
-
-.ocean-effect {
-
-position:fixed;
-
-bottom:0;
-
-left:0;
-
-width:100%;
-
-height:180px;
-
-overflow:hidden;
-
-z-index:-1;
+    text-shadow:
+    0 3px 10px rgba(0,0,0,.2);
 
 }
 
+.header p{
 
+    margin-top:8px;
 
-.wave {
+    color:white;
 
-position:absolute;
-
-bottom:-60px;
-
-left:-50%;
-
-width:200%;
-
-height:150px;
-
-background:
-
-rgba(0,160,220,0.25);
-
-border-radius:50%;
-
-animation:
-
-waveMove 8s infinite linear;
+    opacity:.9;
 
 }
 
+/* ---------- メイン ---------- */
 
+.hero{
 
-.wave2 {
+    flex:1;
 
-bottom:-80px;
+    display:flex;
 
-opacity:0.5;
+    flex-direction:column;
 
-animation-duration:12s;
+    align-items:center;
 
-}
+    gap:25px;
 
-
-
-
-@keyframes waveMove {
-
-
-from {
-
-transform:translateX(0);
+    padding:20px;
 
 }
 
+/* ---------- 今日の予定 ---------- */
 
-to {
+.today-bubble{
 
-transform:translateX(200px);
-
-}
-
-
-}
-
-
-
-
-
-/* 泡 */
-
-.bubble {
-
-position:absolute;
-
-bottom:-50px;
-
-background:white;
-
-border-radius:50%;
-
-opacity:0.5;
-
-animation:
-
-bubbleUp 8s infinite;
-
-}
-
-
-
-.b1 {
-
-width:20px;
-
-height:20px;
-
-left:20%;
-
-}
-
-
-
-.b2 {
-
-width:35px;
-
-height:35px;
-
-left:60%;
-
-animation-delay:2s;
-
-}
-
-
-
-.b3 {
-
-width:15px;
-
-height:15px;
-
-left:80%;
-
-animation-delay:4s;
-
-}
-
-
-
-
-@keyframes bubbleUp {
-
-
-from {
-
-transform:translateY(0);
-
-opacity:0;
-
-}
-
-
-30% {
-
-opacity:0.6;
-
-}
-
-
-to {
-
-transform:translateY(-600px);
-
-opacity:0;
-
-}
-
-
-}
-
-
-
-
-
-
-
-header {
-
-padding:45px 20px 30px;
-
-}
-
-
-
-h1 {
-
-font-size:2.5rem;
-
-color:#006994;
-
-text-shadow:
-
-2px 2px white;
-
-}
-
-
-
-header p {
-
-font-size:1.5rem;
-
-font-weight:bold;
-
-color:#0077b6;
-
-}
-
-
-
-header span {
-
-color:#468faf;
-
-}
-
-
-
-
-
-
-.today,
-.family,
-.calendar-area {
-
-
-background:
-
-rgba(255,255,255,0.8);
-
-
-backdrop-filter:blur(8px);
-
-
-border-radius:35px;
-
-
-padding:25px;
-
-
-margin:25px auto;
-
-
-max-width:520px;
-
-
-box-shadow:
-
-0 15px 35px
-
-rgba(0,100,150,0.15);
-
-}
-
-
-
-
-
-.member {
-
-padding:18px;
-
-margin:15px 0;
-
-border-radius:25px;
-
-}
-
-
-
-.john {
-
-background:#e8f7c8;
-
-}
-
-
-
-.kana {
-
-background:#d7f5ff;
-
-}
-
-
-
-.naru {
-
-background:#fff4b8;
-
-}
-
-
-
-
-.calendar-header {
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-
-
-button {
-
-background:#0077b6;
-
-color:white;
-
-border:none;
-
-border-radius:50%;
-
-width:45px;
-
-height:45px;
-
-}
-
-
-
-#calendar {
-
-display:grid;
-
-grid-template-columns:
-repeat(7,1fr);
-
-gap:8px;
-
-}
-
-
-
-.day {
-
-background:white;
-
-border-radius:18px;
-
-padding:12px 5px;
-
-}
-
-
-
-.schedule-box {
-
-margin-top:25px;
-
-padding:20px;
-
-border-radius:30px;
-
-background:
-rgba(255,255,255,0.7);
-
-}
-
-
-
-input,
-select {
-
-width:80%;
-
-padding:12px;
-
-border-radius:18px;
-
-border:1px solid #90e0ef;
-
-}
-
-
-
-footer {
-
-padding:40px;
-
-color:#0077b6;
-
-}
-/* 🌊 伊藤家メンバーカード強化 */
-
-.member {
-
-  position:relative;
-
-  overflow:hidden;
-
-  transition:0.4s;
-
-  border:2px solid rgba(255,255,255,0.8);
-
-}
-
-
-.member:hover {
-
-  transform:translateY(-8px);
-
-  box-shadow:
-  0 15px 30px
-  rgba(0,100,150,0.25);
-
-}
-
-
-
-/* 船長ジョン */
-
-.john {
-
-  background:
-  linear-gradient(
-  135deg,
-  #e8f7c8,
-  #ffffff
-  );
-
-}
-
-
-/* クジラの海 */
-
-.kana {
-
-  background:
-  linear-gradient(
-  135deg,
-  #d7f5ff,
-  #ffffff
-  );
-
-}
-
-
-/* 小さな冒険家 */
-
-.naru {
-
-  background:
-  linear-gradient(
-  135deg,
-  #fff4b8,
-  #ffffff
-  );
-
-}
-
-
-
-.member::after {
-
-  content:"🌊";
-
-  position:absolute;
-
-  right:15px;
-
-  bottom:10px;
-
-  opacity:0.25;
-
-  font-size:35px;
-
-}
+   
