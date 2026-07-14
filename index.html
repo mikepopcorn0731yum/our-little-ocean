@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Little Ocean</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Ocean</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 <div class="ocean">
 
     <!-- 水中の光 -->
-    <div class="sun-rays"></div>
+    <div class="sunlight"></div>
 
     <!-- 泡 -->
     <div id="bubble-layer"></div>
@@ -21,22 +22,19 @@
     <!-- 魚 -->
     <div id="fish-layer"></div>
 
+    <!-- 海藻 -->
+    <div id="seaweed-layer"></div>
+
+    <!-- サンゴ -->
+    <div id="coral-layer"></div>
+
     <!-- キラキラ -->
     <div id="sparkle-layer"></div>
 
-    <!-- 海藻 -->
-    <div class="seaweed left"></div>
-    <div class="seaweed center"></div>
-    <div class="seaweed right"></div>
-
-    <!-- サンゴ -->
-    <div class="coral left"></div>
-    <div class="coral right"></div>
-
+    <!-- メイン画面 -->
     <main class="home">
 
-        <!-- タイトル -->
-        <header class="header">
+        <header class="title">
 
             <h1>🌊 Our Little Ocean</h1>
 
@@ -44,46 +42,41 @@
 
         </header>
 
-        <!-- サンゴの家 -->
-        <section class="house-area">
+        <section class="center-area">
 
-            <div class="house-glow"></div>
+            <div class="house-area">
 
-            <div class="house">
-
-                🪸🏠
-
-            </div>
-
-            <p>チャッピーのおうち</p>
-
-        </section>
-
-        <!-- 今日の予定 -->
-        <section class="today-card">
-
-            <h2>🫧 今日の航海</h2>
-
-            <p id="today-message">
-
-                海の豆知識がここに表示されます
-
-            </p>
-
-        </section>
-
-        <!-- チャッピー -->
-        <section class="chappy-area">
-
-            <div id="chappy">
-
-                🦦
+                <img
+                src="assets/coral-house.png"
+                alt="チャッピーのおうち"
+                class="coral-house">
 
             </div>
 
-            <div class="speech">
+            <div class="today-bubble">
 
-                おかえり😊
+                <h2>🫧 今日の予定</h2>
+
+                <div id="today-message">
+
+                    読み込み中...
+
+                </div>
+
+            </div>
+
+            <div class="chappy-area">
+
+                <img
+                src="assets/chappy.png"
+                alt="チャッピー"
+                id="chappy">
+
+                <div id="speech">
+
+                    おかえり😊
+
+                </div>
 
             </div>
 
@@ -91,19 +84,37 @@
 
     </main>
 
-    <!-- 下メニュー -->
-
     <nav class="bottom-menu">
 
-        <button>🏠<br>ホーム</button>
+        <button id="homeBtn">
 
-        <button>📅<br>カレンダー</button>
+            🏠<br>ホーム
 
-        <button>🛒<br>買い物</button>
+        </button>
 
-        <button>📖<br>航海日誌</button>
+        <button id="calendarBtn">
 
-        <button>⚙️<br>メニュー</button>
+            📅<br>カレンダー
+
+        </button>
+
+        <button id="shoppingBtn">
+
+            🛒<br>買い物
+
+        </button>
+
+        <button id="logBtn">
+
+            📖<br>航海日誌
+
+        </button>
+
+        <button id="menuBtn">
+
+            ⚙️<br>メニュー
+
+        </button>
 
     </nav>
 
