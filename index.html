@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Our Little Ocean</title>
 
 <link rel="stylesheet" href="style.css">
@@ -11,116 +14,73 @@
 
 <body>
 
-<div class="ocean">
+<div class="background">
 
-    <!-- 水中の光 -->
-    <div class="sunlight"></div>
+<div class="light"></div>
 
-    <!-- 泡 -->
-    <div id="bubble-layer"></div>
+<div class="reef"></div>
 
-    <!-- 魚 -->
-    <div id="fish-layer"></div>
+</div>
 
-    <!-- 海藻 -->
-    <div id="seaweed-layer"></div>
+<div class="screen">
 
-    <!-- サンゴ -->
-    <div id="coral-layer"></div>
+<header>
 
-    <!-- キラキラ -->
-    <div id="sparkle-layer"></div>
+<h1>🌊 Our Little Ocean</h1>
 
-    <!-- メイン画面 -->
-    <main class="home">
+<p>毎日帰りたくなる海</p>
 
-        <header class="title">
+</header>
 
-            <h1>🌊 Our Little Ocean</h1>
+<div class="glass-card">
 
-            <p>毎日帰りたくなる海</p>
+<h2>🫧 今日の予定</h2>
 
-        </header>
+<p>
 
-        <section class="center-area">
+今日は特別な予定はありません。<br>
+海の中でゆっくり過ごそう。
 
-            <div class="house-area">
+</p>
 
-                <img
-                src="assets/coral-house.png"
-                alt="チャッピーのおうち"
-                class="coral-house">
+</div>
 
-            </div>
+<div class="home-area">
 
-            <div class="today-bubble">
+<div class="house">
 
-                <h2>🫧 今日の予定</h2>
+🏠
 
-                <div id="today-message">
+</div>
 
-                    読み込み中...
+<p>チャッピーのおうち</p>
 
-                </div>
+</div>
 
-            </div>
+<div class="chappy">
 
-            <div class="chappy-area">
+🦦
 
-                <img
-                src="assets/chappy.png"
-                alt="チャッピー"
-                id="chappy">
+</div>
 
-                <div id="speech">
+<nav>
 
-                    おかえり😊
+<button>🏠<br>ホーム</button>
 
-                </div>
+<button>📅<br>予定</button>
 
-            </div>
+<button>🛒<br>買い物</button>
 
-        </section>
+<button>📖<br>航海日誌</button>
 
-    </main>
+<button>⚙️<br>設定</button>
 
-    <nav class="bottom-menu">
-
-        <button id="homeBtn">
-
-            🏠<br>ホーム
-
-        </button>
-
-        <button id="calendarBtn">
-
-            📅<br>カレンダー
-
-        </button>
-
-        <button id="shoppingBtn">
-
-            🛒<br>買い物
-
-        </button>
-
-        <button id="logBtn">
-
-            📖<br>航海日誌
-
-        </button>
-
-        <button id="menuBtn">
-
-            ⚙️<br>メニュー
-
-        </button>
-
-    </nav>
+</nav>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
